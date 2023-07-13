@@ -16,10 +16,22 @@ def novo():
         nivel = input('Nível: ')
         limit = input('Limitações: ')
 
-        cliente = {'Nome': nome, 'Nº telefone': num_tel, 'Morada': morada, 'C.C':cc, 'Nível': nivel, 'Limitações': limit}
+        cliente = {'Nome': nome, 'Nº telefone': num_tel, 'Morada': morada, 'Cartão de cidadão':cc, 'Nível': nivel, 'Limitações': limit}
         lista_clientes.append(cliente)
         resp = str(input('Pretende continuar? (S/N)')).upper().strip()
         if resp == 'N':
             break
     return lista_clientes
 
+def modificar(lst):
+    while True:
+        nome = (input('Selecione o nome do desportista: '))
+        for desp in lst:
+            for k,v in desp.items():
+                if nome == v:
+                    resp = input(f'Olá {v}, em breve conseguiremos alterar os seus dados.')
+        if nome not in desp:
+            print('Atleta não encontrado.\nCertifique-se que escreveu o nome corretamente.')
+        questao = input('Pretende continuar? [S/N]').upper().strip()
+        if questao == 'N':
+            break

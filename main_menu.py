@@ -1,4 +1,4 @@
-from Desportista import novo
+from Desportista import novo, modificar
 
 while True:
     print('*'*20)
@@ -12,9 +12,14 @@ while True:
     print()
     opcao = int(input('Escolha uma opção: '))
     if opcao == 1:
-        print(novo())
+        dados = novo()
+        print(dados)
         print('')
         print('Dados lidos com sucesso!')
+
+    elif opcao == 2:
+       modificar(dados)
+
     else:
         break
     print()
