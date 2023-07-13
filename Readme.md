@@ -1,4 +1,4 @@
-h1<Recriação de um projeto universitário em Python>h1
+Recriação de um projeto universitário em Python
 
 Pretende-se neste trabalho desenvolver em Python um programa que ofereça esta enorme mais
 valia a que designamos por “Gestão de Presenças em Treinos Pessoais”.
