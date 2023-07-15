@@ -1,4 +1,4 @@
-from Desportista import novo, modificar
+from Desportista import novo, modificar, remover
 
 while True:
     print('*'*20)
@@ -19,6 +19,9 @@ while True:
 
     elif opcao == 2:
        modificar(dados)
+    
+    elif opcao == 3:
+        remover(dados)
 
     else:
         break
