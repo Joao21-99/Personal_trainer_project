@@ -24,7 +24,6 @@ def novo():
     return lista_clientes
 
 def modificar(lst):
-    #questao == 'S'
     while True:
         nome = (input('Selecione o nome do desportista: '))
         for desp in lst:
@@ -43,6 +42,22 @@ def modificar(lst):
                             break
                             
 
+            if nome != v:
+                print('Atleta não encontrado.\nCertifique-se que escreveu o nome corretamente (Nome e Apelido).')
+        questao = input('Pretende continuar? [S/N]').upper().strip()
+        if questao == 'N':
+            break
+
+def remover(lst):
+      while True:
+        nome = (input('Selecione o nome do desportista: '))
+        for desp in lst:
+            for k,v in desp.items():
+                if nome == v:
+                    lst.remove(desp)
+                    print(f'\nDesportista {nome} removido com sucesso! ')
+                    print(lst)
+                    break
             if nome != v:
                 print('Atleta não encontrado.\nCertifique-se que escreveu o nome corretamente (Nome e Apelido).')
         questao = input('Pretende continuar? [S/N]').upper().strip()
