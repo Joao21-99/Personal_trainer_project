@@ -1,21 +1,17 @@
+from repetitive_actions import errorNumeric, errorString, errorDate
+# Funções base
 def novo():
-    from datetime import datetime
     lista_clientes = []
     while True:
         nome = input('Nome: ').strip()
-        num_tel = int(input('Nº telemovel: '))
+        errorString(nome)
+        num_tel = input('Nº telemovel: ')
+        errorNumeric(lengthNumberPhone(num_tel))
         morada = input('Morada: ').strip()
-        cc = int(input('Cartão de cidadão: '))
-        while True:
-            data_nasc = input("Data de nascimento (formato: dd/mm/aaaa): ")
-            try:
-                data = datetime.strptime(data_nasc, "%d/%m/%Y")
-                break  
-            except ValueError:
-                print("Formato de data inválido. Tente novamente.")
+        cc = input('Cartão de cidadão: ')
+        data_nasc = errorDate()
         nivel = input('Nível: ')
         limit = input('Limitações: ')
-
         cliente = {'NOME': nome, 'TELEMÓVEL': num_tel, 'MORADA': morada, 'CARTÃO DE CIDADÃO':cc,'DATA DE NASCIMENTO': data_nasc, 'NÍVEL': nivel, 'LIMITAÇÕES': limit}
         lista_clientes.append(cliente)
         resp = str(input('Pretende continuar? (S/N)')).upper().strip()
@@ -64,3 +60,14 @@ def remover(lst):
         questao = input('Pretende continuar? [S/N]').upper().strip()
         if questao == 'N':
             break
+
+#Funções de suporte
+def lengthNumberPhone(num):
+    while True:
+        if len(num) == 9:
+            break
+        else:
+            print('Um número de telefone deve ter 9 algarismos.')
+            num = input('Tente de novo.')
+    return num
+
