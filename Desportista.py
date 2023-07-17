@@ -28,7 +28,7 @@ def modificar(lst):
         nome = (input('Selecione o nome do desportista: '))
         for desp in lst:
             for k,v in desp.items():
-                if nome == v:
+                if nome ==v:
                         resp = input(f'Nome\n-Nº telemovel:\n-Morada\n-Cartão de cidadão\n- Data de nascimento\nNivel\nLimitações\nOlá {v}, que informação pretende alterar? ')
                         
                         if resp in desp:
@@ -41,9 +41,10 @@ def modificar(lst):
                             print('Reposta inválida')
                             break
                             
-
-            if nome != v:
-                print('Atleta não encontrado.\nCertifique-se que escreveu o nome corretamente (Nome e Apelido).')
+          
+                     
+        if nome not in desp['NOME']:
+            print('Atleta não encontrado.\nCertifique-se que escreveu o nome corretamente (Nome e Apelido).')
         questao = input('Pretende continuar? [S/N]').upper().strip()
         if questao == 'N':
             break
@@ -58,8 +59,8 @@ def remover(lst):
                     print(f'\nDesportista {nome} removido com sucesso! ')
                     print(lst)
                     break
-            if nome != v:
-                print('Atleta não encontrado.\nCertifique-se que escreveu o nome corretamente (Nome e Apelido).')
+        if nome not in desp['NOME']:
+            print('Atleta não encontrado.\nCertifique-se que escreveu o nome corretamente (Nome e Apelido).')
         questao = input('Pretende continuar? [S/N]').upper().strip()
         if questao == 'N':
             break
