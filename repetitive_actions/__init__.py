@@ -1,12 +1,14 @@
 def errorString(a):
-    a = a.replace(" ", "")
+    b = a.replace(" ", "")
     while True:
-        if a.isalpha():
+        if b.isalpha():
             break
         else:
             print('Resposta inválida. Não se aceitam números nesta categoria.')
             a = input('Tente outra vez: ')
-            a = a.replace(" ", "")
+            b = a.replace(" ", "")
+    return a
+            
 
 def errorNumeric(num):
     while True:
@@ -28,5 +30,25 @@ def errorDate():
                 print("Formato de data inválido. Tente novamente.")
     return data_nasc
 
+def validateNumber(num, l):
+    while True:
+        if len(num) == l and num.isnumeric() == True:
+            break
+        else:
+            print(f'Esta categoria deve ter {l} algarismos.')
+            num = input('Tente de novo: ')
+    return num
 
-
+def validateLevel(msg):
+    while True:
+        if 'BÁSICO' in msg.upper():
+            break
+        elif 'MÉDIO' in msg.upper():
+           break
+        elif 'AVANÇADO' in msg.upper():
+            break 
+        elif 'PRO'in msg.upper():
+            break
+        else:
+            msg = input('Opção inválida. Tente de novo: ')
+    return msg

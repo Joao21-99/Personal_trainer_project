@@ -23,11 +23,11 @@ while True:
     elif opcao == 3:
         remover(dados)
 
-    else:
+    elif opcao == 0:
         break
-    print()
-
-
+   
+print()
+print('Volte sempre!')
 
 
 

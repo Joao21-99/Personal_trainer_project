@@ -1,16 +1,13 @@
-from repetitive_actions import errorNumeric, errorString, errorDate
-# Funções base
+from repetitive_actions import errorNumeric, errorString, errorDate, validateNumber, validateLevel
 def novo():
     lista_clientes = []
     while True:
-        nome = input('Nome: ').strip()
-        errorString(nome)
-        num_tel = input('Nº telemovel: ')
-        errorNumeric(lengthNumberPhone(num_tel))
+        nome = errorString(input('Nome: ').strip())
+        num_tel=validateNumber(input('Nº telemovel: '),l=9)
         morada = input('Morada: ').strip()
-        cc = input('Cartão de cidadão: ')
+        cc = validateNumber(input('Cartão de cidadão: '),l=8)
         data_nasc = errorDate()
-        nivel = input('Nível: ')
+        nivel = validateLevel(input('Niveis: Básico\nMédio\nAvançado\nPro\nNível: '))
         limit = input('Limitações: ')
         cliente = {'NOME': nome, 'TELEMÓVEL': num_tel, 'MORADA': morada, 'CARTÃO DE CIDADÃO':cc,'DATA DE NASCIMENTO': data_nasc, 'NÍVEL': nivel, 'LIMITAÇÕES': limit}
         lista_clientes.append(cliente)
@@ -22,6 +19,7 @@ def novo():
 def modificar(lst):
     while True:
         nome = (input('Selecione o nome do desportista: '))
+        errorString(nome)
         for desp in lst:
             for k,v in desp.items():
                 if nome ==v:
@@ -61,13 +59,6 @@ def remover(lst):
         if questao == 'N':
             break
 
-#Funções de suporte
-def lengthNumberPhone(num):
-    while True:
-        if len(num) == 9:
-            break
-        else:
-            print('Um número de telefone deve ter 9 algarismos.')
-            num = input('Tente de novo.')
-    return num
+
+
 
