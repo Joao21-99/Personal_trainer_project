@@ -1,5 +1,5 @@
 from repetitive_actions import errorNumeric, errorString, errorDate, validateNumber, validateLevel
-def novo():
+def novo(nivel = 'BASICO', limit = 'Nenhuma'):
     lista_clientes = []
     while True:
         nome = errorString(input('Nome: ').strip())
@@ -26,10 +26,44 @@ def modificar(lst):
                         resp = input(f'Nome\n-Nº telemovel:\n-Morada\n-Cartão de cidadão\n- Data de nascimento\nNivel\nLimitações\nOlá {v}, que informação pretende alterar? ')
                         
                         if resp in desp:
-                                altera = input(f'{resp}: ')
-                                desp.update({resp: altera}) 
-                                print(f'\nAlteração bem sucedida!\n{desp}')
-                                break 
+                                if desp[resp] == desp['NOME']:
+                                    altera = errorString(input(f'{resp}: '))
+                                    desp.update({resp: altera}) 
+                                    print(f'\nAlteração bem sucedida!\n{desp}')
+
+                                elif desp[resp] == desp['TELEMÓVEL']:
+                                    altera = errorString(input(f'{resp}: '))
+                                    desp.update({resp: altera}) 
+                                    print(f'\nAlteração bem sucedida!\n{desp}')
+                                    
+                                elif desp[resp] == desp['MORADA']:
+                                    altera = errorString(input(f'{resp}: '))
+                                    desp.update({resp: altera}) 
+                                    print(f'\nAlteração bem sucedida!\n{desp}')
+
+                                elif desp[resp] == desp['CARTÃO DE CIDADÃO']:
+                                    altera = errorString(input(f'{resp}: '))
+                                    desp.update({resp: altera}) 
+                                    print(f'\nAlteração bem sucedida!\n{desp}')
+
+                                elif desp[resp] == desp['DATA DE NASCIMENTO']:
+                                    altera = errorString(input(f'{resp}: '))
+                                    desp.update({resp: altera}) 
+                                    print(f'\nAlteração bem sucedida!\n{desp}')    
+                                elif desp[resp] == desp['NIVEL']:
+                                    altera = errorString(input(f'{resp}: '))
+                                    desp.update({resp: altera}) 
+                                    print(f'\nAlteração bem sucedida!\n{desp}') 
+
+                                elif desp[resp] == desp['LIMITAÇÕES']:
+                                    altera = errorString(input(f'{resp}: '))
+                                    desp.update({resp: altera}) 
+                                    print(f'\nAlteração bem sucedida!\n{desp}')  
+                                else:
+                                    altera = input(f'{resp}: ')
+                                    desp.update({resp: altera}) 
+                                    print(f'\nAlteração bem sucedida!\n{desp}')
+                                    break 
                                 
                         else:
                             print('Reposta inválida')
@@ -37,7 +71,7 @@ def modificar(lst):
                             
           
                      
-        if nome not in desp['NOME']:
+        if nome != desp['NOME']:
             print('Atleta não encontrado.\nCertifique-se que escreveu o nome corretamente (Nome e Apelido).')
         questao = input('Pretende continuar? [S/N]').upper().strip()
         if questao == 'N':
