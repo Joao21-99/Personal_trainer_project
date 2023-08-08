@@ -32,7 +32,7 @@ def modificar(lst):
                                     print(f'\nAlteração bem sucedida!\n{desp}')
 
                                 elif desp[resp] == desp['TELEMÓVEL']:
-                                    altera = errorString(input(f'{resp}: '))
+                                    altera = validateNumber(input(f'{resp}: '), l=9)
                                     desp.update({resp: altera}) 
                                     print(f'\nAlteração bem sucedida!\n{desp}')
                                     
@@ -42,29 +42,24 @@ def modificar(lst):
                                     print(f'\nAlteração bem sucedida!\n{desp}')
 
                                 elif desp[resp] == desp['CARTÃO DE CIDADÃO']:
-                                    altera = errorString(input(f'{resp}: '))
+                                    altera = validateNumber(input(f'{resp}: '),l=8)
                                     desp.update({resp: altera}) 
                                     print(f'\nAlteração bem sucedida!\n{desp}')
 
                                 elif desp[resp] == desp['DATA DE NASCIMENTO']:
-                                    altera = errorString(input(f'{resp}: '))
+                                    altera = errorDate()
                                     desp.update({resp: altera}) 
                                     print(f'\nAlteração bem sucedida!\n{desp}')    
                                 elif desp[resp] == desp['NIVEL']:
-                                    altera = errorString(input(f'{resp}: '))
+                                    altera = input(f'{resp}: ')
                                     desp.update({resp: altera}) 
                                     print(f'\nAlteração bem sucedida!\n{desp}') 
 
                                 elif desp[resp] == desp['LIMITAÇÕES']:
-                                    altera = errorString(input(f'{resp}: '))
-                                    desp.update({resp: altera}) 
-                                    print(f'\nAlteração bem sucedida!\n{desp}')  
-                                else:
                                     altera = input(f'{resp}: ')
                                     desp.update({resp: altera}) 
-                                    print(f'\nAlteração bem sucedida!\n{desp}')
-                                    break 
-                                
+                                    print(f'\nAlteração bem sucedida!\n{desp}')  
+                               
                         else:
                             print('Reposta inválida')
                             break
