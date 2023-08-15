@@ -1,3 +1,15 @@
+def menu(lista):
+    c = 1
+    for item in lista:
+        print(f'{c} - {item}')
+        c += 1
+    opcao = readInt('Opção: ')
+    return opcao
+
+def linha():
+    print('*'*20)
+def linha2():
+    print('-'*20)
 def errorString(a):
     b = a.replace(" ", "")
     while True:
@@ -10,14 +22,16 @@ def errorString(a):
     return a
             
 
-def errorNumeric(num):
+def readInt (txt):
     while True:
-        if num.isnumeric():
-            valor = int(num)
-            break
-        else:
-            print('Resposta inválida. Não se aceitam letras nesta categoria.')
-            num = input('Tente outra vez: ')
+        try:
+            msg = int(input(txt))
+            return msg
+        except(ValueError, TypeError):
+            print('Esta categoria apenas aceita numeros inteiros.')
+        except(KeyboardInterrupt):
+            print('Execução interrompida.')
+        continue
 
 def errorDate():
     from datetime import datetime
@@ -39,16 +53,20 @@ def validateNumber(num, l):
             num = input('Tente de novo: ')
     return num
 
-def validateLevel(msg):
+def validateLevel():
+    
     while True:
-        if 'BÁSICO' in msg.upper():
-            break
-        elif 'MÉDIO' in msg.upper():
-           break
-        elif 'AVANÇADO' in msg.upper():
-            break 
-        elif 'PRO'in msg.upper():
-            break
+        print('Escolha o nível em que se econtra.')
+        resposta = menu(['BÁSICO', 'MÉDIO', 'AVANÇADO','PROFISSIONAL'])
+
+        if resposta == 1:
+            return 'BÁSICO'
+        elif resposta == 2:
+           return 'MÉDIO'
+        elif resposta == 3:
+            return 'AVANÇADO' 
+        elif resposta == 4:
+            return 'PROFISSIONAL'
         else:
-            msg = input('Opção inválida. Tente de novo: ')
-    return msg
+            print('Opcão inválida')
+            linha2()
