@@ -1,27 +1,66 @@
 def novo():
     from datetime import datetime
-    cliente = []
     lista_clientes = []
-    nome = input('Nome: ').strip()
-    cliente.append(nome)
-    num_tel = int(input('Nº telemovel: '))
-    cliente.append(num_tel)
-    morada = input('Morada: ').strip()
-    cliente.append(morada)
-    cc = int(input('cartão de cidadão: '))
-    cliente.append(cc)
     while True:
-        data_nasc = input("Digite sua data de nascimento (formato: dd/mm/aaaa): ")
-        try:
-            data = datetime.strptime(data_nasc, "%d/%m/%Y")
-            break  
-        except ValueError:
-            print("Formato de data inválido. Tente novamente.")
-    nivel = input('Nível: ')
-    cliente.append(nivel)
-    limit = input('Limitações: ')
-    cliente.append(limit)
-    lista_clientes.append(cliente)
-    print('Dados carregados com sucesso!')
-    print(cliente)
-    print(lista_clientes)
+        nome = input('Nome: ').strip()
+        num_tel = int(input('Nº telemovel: '))
+        morada = input('Morada: ').strip()
+        cc = int(input('Cartão de cidadão: '))
+        while True:
+            data_nasc = input("Data de nascimento (formato: dd/mm/aaaa): ")
+            try:
+                data = datetime.strptime(data_nasc, "%d/%m/%Y")
+                break  
+            except ValueError:
+                print("Formato de data inválido. Tente novamente.")
+        nivel = input('Nível: ')
+        limit = input('Limitações: ')
+
+        cliente = {'NOME': nome, 'TELEMÓVEL': num_tel, 'MORADA': morada, 'CARTÃO DE CIDADÃO':cc,'DATA DE NASCIMENTO': data_nasc, 'NÍVEL': nivel, 'LIMITAÇÕES': limit}
+        lista_clientes.append(cliente)
+        resp = str(input('Pretende continuar? (S/N)')).upper().strip()
+        if resp == 'N':
+            break
+    return lista_clientes
+
+def modificar(lst):
+    while True:
+        nome = (input('Selecione o nome do desportista: '))
+        for desp in lst:
+            for k,v in desp.items():
+                if nome ==v:
+                        resp = input(f'Nome\n-Nº telemovel:\n-Morada\n-Cartão de cidadão\n- Data de nascimento\nNivel\nLimitações\nOlá {v}, que informação pretende alterar? ')
+                        
+                        if resp in desp:
+                                altera = input(f'{resp}: ')
+                                desp.update({resp: altera}) 
+                                print(f'\nAlteração bem sucedida!\n{desp}')
+                                break 
+                                
+                        else:
+                            print('Reposta inválida')
+                            break
+                            
+          
+                     
+        if nome not in desp['NOME']:
+            print('Atleta não encontrado.\nCertifique-se que escreveu o nome corretamente (Nome e Apelido).')
+        questao = input('Pretende continuar? [S/N]').upper().strip()
+        if questao == 'N':
+            break
+
+def remover(lst):
+      while True:
+        nome = (input('Selecione o nome do desportista: '))
+        for desp in lst:
+            for k,v in desp.items():
+                if nome == v:
+                    lst.remove(desp)
+                    print(f'\nDesportista {nome} removido com sucesso! ')
+                    print(lst)
+                    break
+        if nome not in desp['NOME']:
+            print('Atleta não encontrado.\nCertifique-se que escreveu o nome corretamente (Nome e Apelido).')
+        questao = input('Pretende continuar? [S/N]').upper().strip()
+        if questao == 'N':
+            break

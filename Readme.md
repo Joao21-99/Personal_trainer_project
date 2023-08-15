@@ -1,3 +1,4 @@
+
 # Recriação de um projeto universitário em Python
 
 Pretende-se neste trabalho desenvolver em Python um programa que ofereça esta enorme mais valia a que designamos por **Gestão de Presenças em Treinos Pessoais**. Espera-se que exista um conjunto de funcionalidades base, das quais realçamos:
@@ -20,3 +21,4 @@ Pretende-se neste trabalho desenvolver em Python um programa que ofereça esta e
 7. **Presenças Mensais**: Mostra, num gráfico, a quantidade de desportistas que participaram em treinos em cada dia do mês.
 
 8. **Sair**: A função deve sair do programa, perguntando primeiro se pretende gravar os dados.
+
