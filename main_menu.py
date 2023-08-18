@@ -14,10 +14,16 @@ while True:
         print('Dados lidos com sucesso!')
 
     elif resposta == 2:
-       modificar(dados)
+        try:
+            modificar(dados)
+        except(NameError):
+            print('ERRO! Nenhum desportista foi inserido.')
     
     elif resposta == 3:
-        remover(dados)
+      try:
+            remover(dados)
+      except(NameError):
+            print('eERRO! Nenhum desportista foi inserido.')
 
     elif resposta == 9:
         break

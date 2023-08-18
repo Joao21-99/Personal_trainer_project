@@ -8,8 +8,10 @@ def menu(lista):
 
 def linha():
     print('*'*20)
+    
 def linha2():
     print('-'*20)
+
 def errorString(a):
     b = a.replace(" ", "")
     while True:
@@ -47,6 +49,7 @@ def errorDate():
 def validateNumber(num, l):
     while True:
         if len(num) == l and num.isnumeric() == True:
+            num = int(num)
             break
         else:
             print(f'Esta categoria deve ter {l} algarismos.')
@@ -54,7 +57,6 @@ def validateNumber(num, l):
     return num
 
 def validateLevel():
-    
     while True:
         print('Escolha o nível em que se econtra.')
         resposta = menu(['BÁSICO', 'MÉDIO', 'AVANÇADO','PROFISSIONAL'])
