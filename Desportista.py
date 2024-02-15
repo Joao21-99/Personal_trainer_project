@@ -1,4 +1,4 @@
-from repetitive_actions import *
+from repetitive_actions.support_functions import *
 def novo(nivel = 'BASICO', limit = 'Nenhuma'):
     lista_clientes = []
     id = 0

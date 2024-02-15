@@ -1,5 +1,5 @@
 from Desportista import *
-from repetitive_actions import *
+from repetitive_actions.support_functions import *
 while True: 
     linha()
     print('MENU PRINCIPAL'.center(20))
