@@ -1,5 +1,6 @@
-from Desportista import *
-from repetitive_actions.support_functions import *
+from Management.desportista import *
+from Repetitive_actions.support_functions import *
+dados_inseridos = False
 while True: 
     linha()
     print('MENU PRINCIPAL'.center(20))
@@ -8,10 +9,19 @@ while True:
     linha2()
 
     if resposta == 1:
-        dados = novo()
-        print(dados)
-        print('')
-        print('Dados lidos com sucesso!')
+        if dados_inseridos:
+            print('Deve fazer o registo do desportista que foi anteriormente inserido.')
+        else:
+            dados = novo()
+            if dados:
+                print(dados)
+                print('')
+                print('Dados lidos com sucesso!')
+                dados_inseridos = True
+            else:
+                print('Erro ao inserir dados do desportista.')
+        
+       
 
     elif resposta == 2:
         try:
