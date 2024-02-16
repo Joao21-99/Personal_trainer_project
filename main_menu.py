@@ -10,7 +10,7 @@ while True:
 
     if resposta == 1:
         if dados_inseridos:
-            print('Deve fazer o registo do desportista que foi anteriormente inserido.')
+            print('Deve gravar os dados do(s) desportista(s) inserido(s) anteriormente.')
         else:
             dados = novo()
             if dados:
@@ -31,7 +31,7 @@ while True:
     
     elif resposta == 3:
       try:
-            remover(dados)
+           dados_inseridos = remover(dados,dados_inseridos)
       except(NameError):
             print('eERRO! Nenhum desportista foi inserido.')
 

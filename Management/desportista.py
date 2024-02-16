@@ -26,8 +26,8 @@ def modificar(lst):
                 for k,v in desp.items():
                     if id == v:
                         while True:
-                            print(f'Olá {desp["NOME"]} que informação gostarias de alterar')
-                            resp = menu(['Nome','Nº telemóvel','Morada', 'Cartão de cidadão', 'Data de nascimento','Nível','Limitações'])
+                            print(f'Olá {desp["NOME"]}, que informação gostarias de alterar?')
+                            resp = menu(['Nome','Nº telemóvel','Morada', 'Cartão de cidadão', 'Data de nascimento','Nível','Limitações','Voltar'])
                             if resp == 1:
                                 altera = errorString(input('Nome: ').strip())
                                 desp['NOME'] = altera
@@ -60,7 +60,8 @@ def modificar(lst):
                                 altera = input('Limitações: ')
                                 desp['LIMITAÇÕES'] = altera
                                 print(f'\nAlteração bem sucedida!\n{desp}')
-                            
+                            elif resp ==8:
+                                break
                             else:
                                 print('Opção inválida')
                             questao = input('Pretende continuar? [S/N]').upper().strip()
@@ -81,7 +82,7 @@ def modificar(lst):
              
 
 
-def remover(lst):
+def remover(lst, dados_inseridos):
     try:  
       while True:
         id =  readInt('Selecione o seu ID: ')
@@ -94,6 +95,7 @@ def remover(lst):
                     break
         if lst == []:
             print('Não existe mais nenhum desportista inserido.')
+            dados_inseridos = False
             break
 
         if id != desp['ID']:
@@ -103,7 +105,10 @@ def remover(lst):
         if questao == 'N':
             break
     except(UnboundLocalError):
-        print('ERRO! Nenhum desportista foi inserido.')        
+        print('ERRO! Nenhum desportista foi inserido.') 
+
+    return dados_inseridos     
+  
 
 
 
