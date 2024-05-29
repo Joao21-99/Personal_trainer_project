@@ -1,11 +1,17 @@
 from Management.desportista import *
+from Management.Dados import *
 from Repetitive_actions.support_functions import *
+
 dados_inseridos = False
+arq = 'dados.txt'
+if not arquivoExiste(arq):
+        criarArquivo(arq)
+        
 while True: 
     linha()
     print('MENU PRINCIPAL'.center(20))
     linha()
-    resposta = menu(['Introduzir novo desportista','Alterar dados do desportista','Remover desportista','Registar treino','Remover treino','Gravar dados','Carregar dados','Consultas','Sair'])
+    resposta = menu(['Introduzir novo desportista','Alterar dados do desportista','Remover desportista', 'Gravar dados','Registar treino','Remover treino','Carregar dados','Consultas','Sair'])
     linha2()
 
     if resposta == 1:
@@ -33,7 +39,14 @@ while True:
       try:
            dados_inseridos = remover(dados,dados_inseridos)
       except(NameError):
-            print('eERRO! Nenhum desportista foi inserido.')
+            print('ERRO! Nenhum desportista foi inserido.')
+
+    elif resposta == 4:
+        dados_inseridos = False
+        try:
+            adicionarDesportista(arq, dados)
+        except(NameError):
+            print('ERRO! Nenhum desportista foi inserido.')
 
     elif resposta == 9:
         break

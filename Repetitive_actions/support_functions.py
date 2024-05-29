@@ -72,3 +72,4 @@ def validateLevel():
         else:
             print('Opcão inválida')
             linha2()
+
