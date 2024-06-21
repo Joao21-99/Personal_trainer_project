@@ -1,0 +1,2 @@
+{'ID': 1, 'NOME': 'João Yanga', 'TELEMOVEL': 926723847, 'MORADA': 'Rua D. Francisco das Heitas nº2 3º esq', 'CARTÃO DE CIDADÃO': 26172181, 'DATA DE NASCIMENTO': '21/12/1999', 'NIVEL': 'MÉDIO', 'LIMITAÇÕES': 'Nenhumas'}
+{'ID': 2, 'NOME': 'Eduarda Arantes', 'TELEMOVEL': 926723847, 'MORADA': 'D Francisco das Heitas nº2 3º esq', 'CARTÃO DE CIDADÃO': 81728121, 'DATA DE NASCIMENTO': '07/09/2000', 'NIVEL': 'MÉDIO', 'LIMITAÇÕES': 'nenhumas'}

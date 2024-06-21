@@ -1,33 +1,57 @@
-from Desportista import novo, modificar, remover
+from Management.Desportista import *
+from Management.Dados import *
+from Repetitive_actions.support_functions import *
 
-while True:
-    print('*'*20)
-    print('Menu principal')
-    print('*'*20)
-    print('Desportista:\n1 – Introduzir novo\n2 – Alterar dados pessoais\n3 – Remover\n')
-    print('Presenças em Treino:\n4 – Registar Treino e Presenças\n5 – Remover Treino\n')
-    print('Gravação:\n6 – Gravar dados\n7 - Carregar dados\n')
-    print('8 - Consultas\n')
-    print('0 – Sair')
-    print()
-    opcao = int(input('Escolha uma opção: '))
-    if opcao == 1:
-        dados = novo()
-        print(dados)
-        print('')
-        print('Dados lidos com sucesso!')
+dados_inseridos = False
+arq = 'dados.txt'
+if not arquivoExiste(arq):
+        criarArquivo(arq)
+        
+while True: 
+    linha()
+    print('MENU PRINCIPAL'.center(20))
+    linha()
+    resposta = menu(['Introduzir novo desportista','Alterar dados do desportista','Remover desportista', 'Gravar dados','Registar treino','Remover treino','Carregar dados','Consultas','Sair'])
+    linha2()
 
-    elif opcao == 2:
-       modificar(dados)
+    if resposta == 1:
+        if dados_inseridos:
+            print('Deve gravar os dados do(s) desportista(s) inserido(s) anteriormente.')
+        else:
+            dados = novo()
+            if dados:
+                print(dados)
+                print('')
+                print('Dados lidos com sucesso!')
+                dados_inseridos = True
+            else:
+                print('Erro ao inserir dados do desportista.')
+        
+       
+
+    elif resposta == 2:
+        try:
+            modificar(dados)
+        except(NameError):
+            print('ERRO! Nenhum desportista foi inserido.')
     
-    elif opcao == 3:
-        remover(dados)
+    elif resposta == 3:
+      try:
+           dados_inseridos = remover(dados,dados_inseridos)
+      except(NameError):
+            print('ERRO! Nenhum desportista foi inserido.')
+
+    elif resposta == 4:
+        dados_inseridos = False
+        try:
+            adicionarDesportista(arq, dados)
+        except(NameError):
+            print('ERRO! Nenhum desportista foi inserido.')
+
+    elif resposta == 9:
+        break
 
     else:
-        break
-    print()
-
-
-
-
-
+        print()
+        print('Opção inválida. Tente de novo')
+        print()
