@@ -3,9 +3,9 @@ from Management.Dados import *
 from Repetitive_actions.support_functions import *
 
 dados_inseridos = False
-arq = 'dados.txt'
+arq = 'dados.json'
 if not arquivoExiste(arq):
-        criarArquivo(arq)
+    criarArquivo(arq)
         
 while True: 
     linha()
@@ -44,7 +44,7 @@ while True:
     elif resposta == 4:
         dados_inseridos = False
         try:
-            adicionarDesportista(arq, dados)
+            adicionarDesportistas(arq, dados)
         except(NameError):
             print('ERRO! Nenhum desportista foi inserido.')
 

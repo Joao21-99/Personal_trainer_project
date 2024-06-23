@@ -1,0 +1,32 @@
+[
+  {
+    "ID": 1,
+    "NOME": "Jo\u00e3o",
+    "TELEMOVEL": 918271821,
+    "MORADA": "Rua wi 1",
+    "CART\u00c3O DE CIDAD\u00c3O": 17281921,
+    "DATA DE NASCIMENTO": "10/7/2007",
+    "NIVEL": "B\u00c1SICO",
+    "LIMITA\u00c7\u00d5ES": "nenhumas"
+  },
+  {
+    "ID": 2,
+    "NOME": "David",
+    "TELEMOVEL": 917281921,
+    "MORADA": "rua che 3",
+    "CART\u00c3O DE CIDAD\u00c3O": 18291829,
+    "DATA DE NASCIMENTO": "20/09/2000",
+    "NIVEL": "M\u00c9DIO",
+    "LIMITA\u00c7\u00d5ES": "nenhumas"
+  },
+  {
+    "ID": 3,
+    "NOME": "Bruno",
+    "TELEMOVEL": 928192091,
+    "MORADA": "Rua nengue",
+    "CART\u00c3O DE CIDAD\u00c3O": 16271829,
+    "DATA DE NASCIMENTO": "20/09/2000",
+    "NIVEL": "M\u00c9DIO",
+    "LIMITA\u00c7\u00d5ES": "dores nos ombros"
+  }
+]
