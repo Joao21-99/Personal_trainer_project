@@ -1,0 +1,22 @@
+[
+  {
+    "ID": 1,
+    "NOME": "Ricardo",
+    "TELEMOVEL": 926724965,
+    "MORADA": "Rua Quinta do Mirante n\u00ba2 3\u00baesq",
+    "CARTAO DE CIDADAO": 17223712,
+    "DATA DE NASCIMENTO": "19/2/1992",
+    "NIVEL": "B\u00c1SICO",
+    "LIMITACOES": "nenhumas"
+  },
+  {
+    "ID": 2,
+    "NOME": "Bruno",
+    "TELEMOVEL": 917281921,
+    "MORADA": "rua franciso",
+    "CARTAO DE CIDADAO": 91821212,
+    "DATA DE NASCIMENTO": "3/3/1999",
+    "NIVEL": "M\u00c9DIO",
+    "LIMITACOES": "nenhumas"
+  }
+]

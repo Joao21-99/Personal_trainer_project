@@ -1,17 +1,18 @@
 from Repetitive_actions.support_functions import *
+import json
 
-def arquivoExiste(txt):
+def arquivoExiste(file):
     try:
-        a = open(txt, 'rt')
+        a = open(file, 'rt')
         a.close()
     except FileNotFoundError:
         return False
     else:
         return True
 
-def criarArquivo(txt):
+def criarArquivo(file):
     try:
-        a = open(txt, 'wt+') # w- write
+        a = open(file, 'wt+') # w- write
         a.close()
     except:
         print('Houve um erro na criação do ficheiro.')
@@ -19,9 +20,9 @@ def criarArquivo(txt):
         print('Arquivo encontrado com sucesso!')
 
 
-def lerArquivo(txt):
+def lerArquivo(file):
      try:
-        a = open(txt, 'rt') #r read
+        a = open(file, 'rt') #r read
      except:
          print('Erro ao ler o arquivo')
      else:
@@ -31,6 +32,22 @@ def lerArquivo(txt):
          linha()
      finally:
          a.close()
+
+def adicionarDesportistas(file, lst):  
+    try:
+        a = open(file, 'at') #a -append
+        try:
+            json.dump(lst, a, indent=2)
+            a.write('\n')
+        except Exception as err:
+            print('Erro ao adicionar o(s) novo(s) elementos(s).', err)
+        else:
+            print('Novo(s) registo(s) guardados com sucesso')
+        finally:
+         a.close() 
+    except Exception as e:
+         print('Erro ao ler o arquivo.', e)
+
 
 def adicionarDesportista(txt, lst):
     try:

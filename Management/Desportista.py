@@ -1,4 +1,3 @@
-
 from Repetitive_actions.support_functions import *
 def novo(nivel = 'BASICO', limit = 'Nenhuma'):
     lista_clientes = []
@@ -12,7 +11,7 @@ def novo(nivel = 'BASICO', limit = 'Nenhuma'):
         nivel = validateLevel()
         limit = input('Limitações: ')
         id += 1
-        cliente = {'ID': id, 'NOME': nome, 'TELEMOVEL': num_tel, 'MORADA': morada, 'CARTÃO DE CIDADÃO':cc,'DATA DE NASCIMENTO': data_nasc, 'NIVEL': nivel, 'LIMITAÇÕES': limit}
+        cliente = {'ID': id, 'NOME': nome, 'TELEMOVEL': num_tel, 'MORADA': morada, 'CARTAO DE CIDADAO':cc,'DATA DE NASCIMENTO': data_nasc, 'NIVEL': nivel, 'LIMITACOES': limit}
         lista_clientes.append(cliente)
         resp = str(input('Pretende continuar? (S/N)')).upper().strip()
         if resp == 'N':
