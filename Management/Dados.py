@@ -33,20 +33,42 @@ def lerArquivo(file):
      finally:
          a.close()
 
-def adicionarDesportistas(file, lst):  
+
+def adicionarDesportistas(txt, lst):
+     
     try:
-        a = open(file, 'at') #a -append
+        key = 'ID'
+        for item in lst:
+            if key in item:
+                del item[key] 
+        # Tenta abrir e carregar os dados existentes do arquivo JSON
         try:
-            json.dump(lst, a, indent=2)
-            a.write('\n')
-        except Exception as err:
-            print('Erro ao adicionar o(s) novo(s) elementos(s).', err)
+            with open(txt, 'r') as file:
+                data = json.load(file)
+        except FileNotFoundError:
+            data = []
+        except json.JSONDecodeError:
+            data = []
+
+        # Determina o próximo ID disponível
+        if data:
+            max_id = max(item["ID"] for item in data)
         else:
-            print('Novo(s) registo(s) guardados com sucesso')
-        finally:
-         a.close() 
+            max_id = 0
+
+        # Atualiza os IDs dos novos desportistas e adiciona à lista existente
+        for i, desportista in enumerate(lst):
+            desportista["ID"] = max_id + i + 1
+        data.extend(lst)
+
+        # Escreve os dados atualizados de volta ao arquivo JSON
+        with open(txt, 'w') as file:
+            json.dump(data, file, indent=2)
+        print('Novo(s) registro(s) guardados com sucesso')
     except Exception as e:
-         print('Erro ao ler o arquivo.', e)
+        print('Erro ao abrir ou escrever no arquivo.', e)
+
+        
 
 
 def adicionarDesportista(txt, lst):
